@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="robots" content="noindex">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Quiz app</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./Quiz app_files/normalize.min.css">
+    <link rel="stylesheet" href="./Quiz app_files/quiz.css">
+
+<style id="jsbin-css">
+/*! normalize.css v1.1.2 | MIT License | git.io/normalize */article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block;*display:inline;*zoom:1}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-size:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}html,button,input,select,textarea{font-family:sans-serif}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:.67em 0}h2{font-size:1.5em;margin:.83em 0}h3{font-size:1.17em;margin:1em 0}h4{font-size:1em;margin:1.33em 0}h5{font-size:.83em;margin:1.67em 0}h6{font-size:.67em;margin:2.33em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}blockquote{margin:1em 40px}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}p,pre{margin:1em 0}code,kbd,pre,samp{font-family:monospace,serif;_font-family:'courier new',monospace;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:none}q:before,q:after{content:'';content:none}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}dl,menu,ol,ul{margin:1em 0}dd{margin:0 0 0 40px}menu,ol,ul{padding:0 0 0 40px}nav ul,nav ol{list-style:none;list-style-image:none}img{border:0;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}figure{margin:0}form{margin:0}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0;white-space:normal;*margin-left:-7px}button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}button,input{line-height:normal}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;*overflow:visible}button[disabled],html input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*height:13px;*width:13px}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
+html,
+button,
+input {
+  color: #222;
+}
+body {
+  font-size: 1em;
+  line-height: 1.4;
+  font-family: courier new;
+}
+#container {
+  margin: auto;
+  max-width: 640px;
+  max-height: 740;
+  padding: 0 15px;
+  background-color: gray;
+  border-radius: 10px;
+}
+h1{
+  font-family:Magneto;
+}
+p{
+  font-family: WST_Engl;
+}
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: Rockwell;
+}
+
+</style>
+</head>
+  <body background="pic/cool-space-wallpaper-16.jpg">
+    <div id="container">
+      <h1>Bonus Game</h1>
+      <p>Space Trivia.</p>
+      <div id="content">
+        <h3 id="question">Q1. What is the full form of IP?</h3>
+        <div id="choices"><input type="radio" name="quiz0" id="choice1" value="Internet Provider"> <label for="choice1">Internet Provider</label><br><input type="radio" name="quiz0" id="choice2" value="Internet Port"> <label for="choice2">Internet Port</label><br><input type="radio" name="quiz0" id="choice3" value="Internet Protocol"> <label for="choice3">Internet Protocol</label><br></div>
+        <p><button id="submit">Submit Answer</button></p>
+        <p id="score">Score: 0 right answers out of 5 possible.</p>
+      </div>
+    </div>
+    <script type="text/javascript" async="" src="./Quiz app_files/linkid.js"></script><script async="" src="./Quiz app_files/analytics.js"></script><script src="./Quiz app_files/quiz.js"></script>
+  <script>
+var quiz = [{
+  "question": "What is the name of our own galaxy?",
+  "choices": ["Milky Way", "Andromeda galaxy", "Centaur Galaxy"],
+  "correct": "Milky Way"
+}, {
+  "question": "Who is the first man to go to Space?",
+  "choices": ["Bill Gates", "Neil Armstrong", "Yuri Gagarin"],
+  "correct": "Yuri Gagarin"
+}, {
+  "question": "What is the planet famous for its rings",
+  "choices": ["Saturn", "Neptune", "Pluto"],
+  "correct": "Saturn"
+}, {
+  "question": "what is the term natural satelite?",
+  "choices": ["Commet", "Asteroid", "Moon"],
+  "correct": "Moon"
+}, {
+  "question": "Waht is the nationality of the first man to go to moon ?",
+  "choices": ["Japanese", "American", "Russian"],
+  "correct": "American"
+}];
+
+
+// define elements
+var content = $("content"),
+  questionContainer = $("question"),
+  choicesContainer = $("choices"),
+  scoreContainer = $("score"),
+  submitBtn = $("submit");
+
+// init vars
+var currentQuestion = 0,
+  score = 0,
+  askingQuestion = true;
+
+function $(id) { // shortcut for document.getElementById
+  return document.getElementById(id);
+}
+
+function askQuestion() {
+  var choices = quiz[currentQuestion].choices,
+    choicesHtml = "";
+
+  // loop through choices, and create radio buttons
+  for (var i = 0; i < choices.length; i++) {
+    choicesHtml += "<input type='radio' name='quiz" + currentQuestion +
+      "' id='choice" + (i + 1) +
+      "' value='" + choices[i] + "'>" +
+      " <label for='choice" + (i + 1) + "'>" + choices[i] + "</label><br>";
+  }
+
+  // load the question
+  questionContainer.textContent = "Q" + (currentQuestion + 1) + ". " +
+    quiz[currentQuestion].question;
+
+  // load the choices
+  choicesContainer.innerHTML = choicesHtml;
+
+  // setup for the first time
+  if (currentQuestion === 0) {
+    scoreContainer.textContent = "Score: 0 right answers out of " +
+      quiz.length + " possible.";
+    submitBtn.textContent = "Submit Answer";
+  }
+}
+
+function checkAnswer() {
+  // are we asking a question, or proceeding to next question?
+  if (askingQuestion) {
+    submitBtn.textContent = "Next Question";
+    askingQuestion = false;
+
+    // determine which radio button they clicked
+    var userpick,
+      correctIndex,
+      radios = document.getElementsByName("quiz" + currentQuestion);
+    for (var i = 0; i < radios.length; i++) {
+      if (radios[i].checked) { // if this radio button is checked
+        userpick = radios[i].value;
+      }
+
+      // get index of correct answer
+      if (radios[i].value == quiz[currentQuestion].correct) {
+        correctIndex = i;
+      }
+    }
+
+    // setup if they got it right, or wrong
+    var labelStyle = document.getElementsByTagName("label")[correctIndex].style;
+    labelStyle.fontWeight = "bold";
+    if (userpick == quiz[currentQuestion].correct) {
+      score++;
+      labelStyle.color = "green";
+    } else {
+      labelStyle.color = "red";
+    }
+
+    scoreContainer.textContent = "Score: " + score + " right answers out of " +
+      quiz.length + " possible.";
+  } else { // move to next question
+    // setting up so user can ask a question
+    askingQuestion = true;
+    // change button text back to "Submit Answer"
+    submitBtn.textContent = "Submit Answer";
+    // if we're not on last question, increase question number
+    if (currentQuestion < quiz.length - 1) {
+      currentQuestion++;
+      askQuestion();
+    } else {
+      showFinalResults();
+    }
+  }
+}
+
+function showFinalResults() {
+  content.innerHTML = "<h2>You've complited the quiz!</h2>" +
+    "<h2>Below are your results:</h2>" +
+    "<h2>" + score + " out of " + quiz.length + " questions, " +
+    Math.round(score / quiz.length * 100) + "%<h2>";
+}
+
+window.addEventListener("load", askQuestion, false);
+submitBtn.addEventListener("click", checkAnswer, false);
+</script>
+<script src="./Quiz app_files/edit.js"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-1656750-34', 'auto');
+ga('require', 'linkid', 'linkid.js');
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+
+</script>
+
+
+
